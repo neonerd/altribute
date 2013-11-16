@@ -1,0 +1,37 @@
+{
+  "name": "altribute-js",
+  "description": "Small library for generating random entities and relations between them",
+  "version": "0.1.0",
+  "homepage": "https://github.com/neonerd/altribute-js",
+  "author": {
+    "name": "Andrej Sykora",
+    "email": "as@andrejsykora.com",
+    "url": "http://andrejsykora.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/neonerd/altribute.git"
+  },
+  "bugs": {
+    "url": "https://github.com/neonerd/altribute/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/neonerd/cubes-js/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "./src/altribute.coffee",
+  "engines": {
+    "node": "*"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-watch": "~0.5.2",
+    "grunt-contrib-coffee": "~0.7.0",
+    "should": "~1.2.2",
+    "grunt-contrib-concat": "~0.3.0"
+  },
+  "keywords": []
+}

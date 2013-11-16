@@ -1,0 +1,44 @@
+{
+
+	"sex" : {
+		"_type" : "random",
+		"_options" : {
+			"distribution" : "even"
+		},
+		"_values" : ["male", "female"]
+	},
+
+	"traits" : {
+
+		"intelligence" : {
+			"_type" : "random",
+			"_options" : {
+				"distribution" : "weighted"
+			},
+			"_values" : {
+				"great" : 1,
+				"good" : 3,
+				"average" : 5,
+				"weak" : 3,
+				"bad" : 1
+			}
+		}
+
+	},
+
+	"archetype" : {
+
+		"_type" : "random",
+		"_options" : {
+			"distribution" : "even"
+		},
+		"_conditions" : {
+			"yuppie" : {
+				"intelligence" : ["good", "great"]
+			}
+		},
+		"_values" : ["hipster","jock","yuppie"]
+
+	}
+
+}

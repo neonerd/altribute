@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+	
+	<head>
+		<meta charset="utf-8">
+
+		<title>Basic Example</title>
+	</head>
+
+	<body>		
+
+		<script src = "../dist/altribute.js"></script>
+
+		<script>
+
+			personStruct = {
+
+				location : {
+					_type : "set"
+				},
+
+				sex : {
+
+					_type : "random",
+					_options : {
+						distribution : 'even'
+					},
+					_values : ['male','female']
+
+				},
+
+				surname : {
+
+					_type : "random",
+					_options : {
+						distribution : 'even'
+					},
+					_hooks :[
+
+						{on : 'after', type : 'delete'}
+
+					],
+					_values : ['Sykora', 'Pinzik', 'Sibyla']
+
+				},				
+
+				age : {
+
+					_type : "random",
+					_options : {
+						distribution : 'even'
+					},
+					_values : "18-30"
+
+				},
+
+				sexuality : {
+
+					_type : "random", 
+					_options : {
+						distribution : 'weighted'
+					},
+					_values : [
+
+						{weight: 70, value : "hetero"},
+						{weight: 20, value : "homo"},
+						{weight: 7, value : "bi"},
+						{weight: 3, value : "a"}
+
+					]
+
+				},
+
+				body : {
+
+					height : {
+
+						_type : "random",
+						_options : {
+							distribution : 'even'
+						},
+						_values : ['short','medium','tall']
+
+					}
+
+				},
+
+				occupation : {
+
+					_type : "random",
+					_options : {
+
+						distribution : "weighted"
+
+					},
+					_conditions : {
+
+						"model" : [
+							"e.body.height == 'tall'"
+						]
+
+					},
+					_values : [
+
+						{weight: 30, value : "worker"},
+						{weight: 30, value : "programmer"},
+						{weight: 20, value : "socialite"},
+						{weight: 20, value : "model"}
+
+					]
+
+				}
+
+			};
+
+			personType = new altribute.EntityType(personStruct)
+			altribute.Entity.type("Person", personType)
+
+			person = new altribute.Entity("Person")
+			person2 = new altribute.Entity("Person")
+			person3 = new altribute.Entity("Person")
+
+			personalRelationType = new altribute.RelationType({})
+			altribute.Relation.type("personal", personalRelationType)
+
+			relation = new altribute.Relation("personal")
+			relation.addEntity(person.getId())
+			relation.addEntity(person2.getId())
+
+			function personDescription(p) {
+
+				if(p.sex == 'male') {
+					pronoun = 'He';
+				} else {
+					pronoun = 'She';
+				}
+
+				return ' ' + p.surname + '. ' + pronoun + ' is ' + p.age + ' years old, of ' + p.body.height + ' height and works as a ' + p.occupation + '.<br>';
+
+			}
+
+			document.write("Person 1 is " + personDescription(person));
+			document.write("Person 2 is " + personDescription(person2));
+			document.write("Person 3 is " + personDescription(person3));
+
+
+		</script>
+
+	</body>
+
+
+</html>

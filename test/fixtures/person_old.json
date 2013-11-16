@@ -1,0 +1,99 @@
+{
+	
+	"sex" : [
+		["1-50", "male"],
+		["51-100", "female"]
+	],
+
+	"orientation" : [
+		["1-80","hetero"],
+		["81-90", "bi"],
+		["91-98", "homo"],
+		["99-100", "a"]
+	],
+	
+	"age" : [
+		["1-20",18],
+		["21-40",19],
+		["41-60",20],
+		["61-80",21],
+		["81-100",22]
+	],
+
+	"name" : "names",
+	"surname" : "surnames",
+
+	"state" : [
+		["1-50", "stable"],
+		["51-60", "sad"],
+		["61-70", "depressed"],
+		["71-85", "happy"],
+		["86-100", "indecisive"]
+	],
+	
+	"traits" : {
+		"type" : "randomObject",
+		"options" : {
+			"intelligence" : [
+				["1-10", "genius"],
+				["11-25", "intelligent"],
+				["26-75", "average"],
+				["76-90", "stupid"],
+				["91-100", "retarded"]
+			],
+			"looks" : [
+				["1-10", "great"],
+				["11-25", "good"],
+				["26-75", "average"],
+				["76-90", "bad"],
+				["91-100", "ugly"]
+			],
+			"charisma" : [
+				["1-10", "disarming"],
+				["11-25", "charming"],
+				["26-75", "acceptable"],
+				["76-90", "questionable"],
+				["91-100", "repulsive"]
+			],
+			"wealth" : [
+				["1-10", "upper"],
+				["11-25", "upper-middle"],
+				["26-75", "middle"],
+				["76-90", "lower-middle"],
+				["91-100", "lower"]
+			]
+		}
+	},
+
+	"archetype" : {
+		"type" : "conditionalString",
+		"options" : [
+			["punk", {
+
+			}],
+			["skin", {
+
+			}],
+			["posh", {
+				"traits.wealth" : ["upper", "upper-middle"]
+			}],
+			["hipster", {
+
+			}],
+			["nerd", {
+				"traits.intelligence" : ["genius", "intelligent"]
+			}],
+			["yuppie", {
+				"traits.intelligence" : ["genius", "intelligent", "average"],
+				"traits.wealth" : ["upper", "upper-middle", "middle"]
+			}],
+			["jock", {
+
+			}],
+			["hiphop", {
+
+			}]
+		]
+	}
+
+}
